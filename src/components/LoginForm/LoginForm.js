@@ -2,13 +2,14 @@
 import React from 'react';
 import {Text, Image, View, SafeAreaView} from 'react-native';
 import styles from './LoginFormStyle';
-import logo from '../../images/logoImg.png';
+import logo from '../../images/logo.png';
 
 export default function LoginForm() {
   return (
-    <SafeAreaView>
-      <Image style={styles.titleLogo} source={logo} />
-      {/* <View style={styles.title}></View> */}
+    <SafeAreaView styles={styles.container}>
+      <View styles={styles.content}>
+        <Image style={styles.titleLogo} source={logo} />
+      </View>
     </SafeAreaView>
   );
 }

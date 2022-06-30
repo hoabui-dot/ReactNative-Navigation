@@ -24,6 +24,7 @@ export default function LoginForm({navigation}) {
   const [userNameText, setUserNameText] = React.useState('');
   const [passwordText, setPasswordText] = React.useState('');
   const info = useSelector(state => state.personalInfo);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     getTodosFromUserDevice();
@@ -100,6 +101,7 @@ export default function LoginForm({navigation}) {
         <View style={styles.showAccount}>
           <Text>User Name: {account.username}</Text>
           <Text>Password: {account.password}</Text>
+          <Text>Email: {info.email}</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -123,7 +125,7 @@ export default function LoginForm({navigation}) {
             {/* Button Update Email */}
             <TouchableOpacity
               onPress={() => {
-                updateEmail(email);
+                dispatch(updateEmail(email));
                 setEmail('');
               }}
               style={{

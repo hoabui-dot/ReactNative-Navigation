@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginForm({navigation}) {
   const [account, setAccount] = React.useState({username: '', password: ''});
+  const [input, setInput] = React.useState('');
 
   React.useEffect(() => {
     getTodosFromUserDevice();
@@ -57,6 +58,7 @@ export default function LoginForm({navigation}) {
         <TextInput
           style={styles.password}
           placeholder="Password"
+          setValue={input}
           onChangeText={e => setAccount({...account, password: e})}
           secureTextEntry
         />

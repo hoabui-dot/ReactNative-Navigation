@@ -57,5 +57,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  backButton: {
+    color: 'black',
+    fontSize: 14,
+    borderWidth: 1,
+    padding: 4,
+    borderColor: '#ccc',
+    borderRadius: 3,
+  },
 });
 export default styles;

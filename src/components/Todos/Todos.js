@@ -14,7 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './TodosStyle';
 const COLORS = {primary: '#1f145c', white: '#fff'};
 
-const Todos = () => {
+const Todos = ({navigation}) => {
   const [todos, setTodos] = React.useState([]);
   const [textInput, setTextInput] = React.useState('');
 
@@ -113,6 +113,13 @@ const Todos = () => {
         backgroundColor: 'white',
       }}>
       <View style={styles.header}>
+        <Text
+          style={styles.backButton}
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          Back
+        </Text>
         <Text
           style={{
             fontWeight: 'bold',

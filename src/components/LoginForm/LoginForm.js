@@ -13,7 +13,7 @@ import styles from './LoginFormStyle';
 import logo from '../../images/logo.png';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useDispatch, useSelector} from 'react-redux';
-import {updateEmail} from '../../redux/actions/updateAction';
+import {updatePassword, updateName} from '../../redux/actions/updateAction';
 
 export default function LoginForm({navigation}) {
   const [account, setAccount] = React.useState({
@@ -23,8 +23,13 @@ export default function LoginForm({navigation}) {
   const [email, setEmail] = React.useState('');
   const [userNameText, setUserNameText] = React.useState('');
   const [passwordText, setPasswordText] = React.useState('');
+
   const info = useSelector(state => state.personalInfo);
   const dispatch = useDispatch();
+
+  // React.useEffect(() => {
+  //   console.log(info);
+  // }, [info]);
 
   React.useEffect(() => {
     getTodosFromUserDevice();
@@ -91,6 +96,8 @@ export default function LoginForm({navigation}) {
           style={styles.loginButton}
           onPress={() => {
             navigation.navigate('Home');
+            dispatch(updateName(userNameText));
+            dispatch(updatePassword(passwordText));
             setUserNameText('');
             setPasswordText('');
           }}>
@@ -101,7 +108,6 @@ export default function LoginForm({navigation}) {
         <View style={styles.showAccount}>
           <Text>User Name: {account.username}</Text>
           <Text>Password: {account.password}</Text>
-          <Text>Email: {info.email}</Text>
           <View
             style={{
               flexDirection: 'row',

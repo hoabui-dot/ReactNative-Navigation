@@ -1,23 +1,21 @@
-export const CAP_NHAT_EMAIL = 'CAP_NHAT_EMAIL';
-export const CAP_NHAT_ID = 'CAP_NHAT_ID';
+export const CAP_NHAT_NAME = 'CAP_NHAT_NAME';
+export const CAP_NHAT_PASSWORD = 'CAP_NHAT_PASSWORD';
+export const CAP_NHAT_TODO = 'CAP_NHAT_TODO';
 
 const initialState = {
-  email: '',
-  score: 0,
-  address: '',
-  id: '', //cmnd
+  name: '',
+  password: '',
+  todo: [],
 };
 
 export default function actionForReducer(state = initialState, payload) {
   switch (payload.type) {
-    case CAP_NHAT_EMAIL:
-      return {
-        ...state,
-        email: payload.email,
-      };
-
-    case CAP_NHAT_ID:
-      return {...state, id: payload.id};
+    case CAP_NHAT_NAME:
+      return {...state, name: payload.name};
+    case CAP_NHAT_PASSWORD:
+      return {...state, password: payload.password};
+    case CAP_NHAT_TODO:
+      return {...state, todo: payload.todo};
 
     default:
       return state;

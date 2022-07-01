@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   SafeAreaView,
   View,
   TextInput,
@@ -92,7 +91,7 @@ const Todos = ({navigation}) => {
           </Text>
         </View>
         {!todo?.completed && (
-          <TouchableOpacity onPress={() => markTodoComplete(todo.id)}>
+          <TouchableOpacity>
             <View style={[styles.actionIcon, {backgroundColor: 'green'}]}>
               <Icon name="done" size={20} color="white" />
             </View>
